@@ -25,6 +25,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     Typeface typeFace2;
     Typeface typeFace3;
     Typeface typeFace4;
+    int yellow;
 
 
     // data is passed into the constructor
@@ -37,6 +38,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         typeFace2 = Typeface.createFromAsset(context.getAssets(), "fonts/adam.otf");
         typeFace3 = Typeface.createFromAsset(context.getAssets(), "fonts/zebrazil.ttf");
         typeFace4 = Typeface.createFromAsset(context.getAssets(), "fonts/anson.otf");
+
+        yellow = context.getResources().getColor(R.color.Yellow);
     }
 
     // inflates the row layout from xml when needed
@@ -78,15 +81,23 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         TextView myTextView;
 
+        TextView byText;
+
         ViewHolder(View itemView) {
             super(itemView);
 
             myTextView = itemView.findViewById(R.id.tvAnimalName);
 
+            byText = itemView.findViewById(R.id.by);
+            byText.setTypeface(typeFace2);
+
             myTextView.setTypeface(typeFace4);
 
             cd = itemView.findViewById(R.id.card);
+
             newImage = (ImageView) itemView.findViewById(R.id.newsimage);
+
+//            cd.setCardBackgroundColor(yellow);
 
             itemView.setOnClickListener(this);
         }

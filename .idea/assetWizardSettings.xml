@@ -51,7 +51,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="51" />
+                                                <entry key="scalingPercent" value="45" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -61,10 +61,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="f0efff" />
-                                      <entry key="backgroundImage" value="C:\Users\Naqi\Desktop\Work\bgicon.png" />
-                                      <entry key="foregroundImage" value="C:\Users\Naqi\Desktop\simply.png" />
+                                      <entry key="backgroundImage" value="C:\Users\Naqi\Desktop\Work\ByLine\bg3.png" />
+                                      <entry key="foregroundImage" value="C:\Users\Naqi\Desktop\Work\ByLine\by3.png" />
                                     </map>
                                   </option>
                                 </PersistentState>

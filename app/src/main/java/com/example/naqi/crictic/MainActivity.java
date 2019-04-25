@@ -42,20 +42,37 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
         setContentView(R.layout.activity_main);
 
+        TextView textView = (TextView) findViewById(R.id.test);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AbrilFatface-Regular.ttf");
+        textView.setTypeface(typeface);
+
         ArrayList<String> matches = new ArrayList();
         ArrayList<Drawable> imag = new ArrayList();
 
         imag.add(getResources().getDrawable(R.drawable.asad));
         imag.add(getResources().getDrawable(R.drawable.sril));
         imag.add(getResources().getDrawable(R.drawable.nab));
+        imag.add(getResources().getDrawable(R.drawable.i));
+        imag.add(getResources().getDrawable(R.drawable.bilawal));
+        imag.add(getResources().getDrawable(R.drawable.iw));
+        imag.add(getResources().getDrawable(R.drawable.sril));
+        imag.add(getResources().getDrawable(R.drawable.joe));
+        imag.add(getResources().getDrawable(R.drawable.jah));
+        imag.add(getResources().getDrawable(R.drawable.foot));
+        imag.add(getResources().getDrawable(R.drawable.pesh));
 
-        TextView textView = (TextView) findViewById(R.id.test);
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AbrilFatface-Regular.ttf");
-        textView.setTypeface(typeface);
 
         matches.add("Asad Umar Outsted!:New Finance Minister Who?");
         matches.add("Sri Lanka Terrorist Attacks: Over 290 Dead.");
         matches.add("NAB inquiry: Sharif's Dilemma");
+        matches.add("Pakistan Settles on World Cup Squad: See the ins and outs");
+        matches.add("PM Imran’s ‘sahiba’ comment sends a message that being a women is an insult: Bilawal");
+        matches.add("Imran Khan, Wasim Akram named in Cricinfo’s all-time World Cup XI");
+        matches.add("Sri Lanka troops join hunt for bomb attack suspects");
+        matches.add("Former Vice President Joe Biden to make third run for the White House");
+        matches.add("Jahangir Tareen meets over 11 MNAs in last 24 hours");
+        matches.add("Guardiola's Man City raise the bar as Man Utd fall behind");
+        matches.add("Peshawar polio campaign: Faking childrens' illness was a pre-planned conspiracy, says report");
 
         RecyclerView rc2 = findViewById(R.id.rvAnimals1);
 
@@ -109,15 +126,58 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         if(position == 0){
             Intent a;
             a = new Intent(this,    WebViewActivity.class);
+            a.putExtra("link", "https://www.geo.tv/latest/234568-stepping-down-doesnt-mean-i-will-not-support-pm-imran-asad-umar");
             startActivity(a);
         }else if(position == 1){
             Intent b;
             b = new Intent(this, WebViewActivity.class);
+            b.putExtra("link", "https://foreignpolicy.com/2019/04/21/whats-behind-the-terrorist-attacks-in-sri-lanka/");
             startActivity(b);
         }else if(position == 2){
             Intent c;
             c = new Intent(this, WebViewActivity.class);
+            c.putExtra("link", "https://dunyanews.tv/en/Pakistan/488615-LNG-scam-NAB-investigates-Shahid-Khaqan-Abbasi");
             startActivity(c);
+        }else if(position == 3) {
+            Intent d;
+            d = new Intent(this, WebViewActivity.class);
+            d.putExtra("link", "https://www.geo.tv/latest/235019-pakistan-team-arrives-in-london-for-england-series-world-cup");
+            startActivity(d);
+        }else if(position == 4) {
+            Intent e;
+            e = new Intent(this, WebViewActivity.class);
+            e.putExtra("link", "https://www.geo.tv/latest/235297-is-pm-imran-saying-that-being-a-woman-is-a-curse-asks-bilawal");
+            startActivity(e);
+        }else if(position == 5) {
+            Intent f;
+            f = new Intent(this, WebViewActivity.class);
+            f.putExtra("link", "https://www.geo.tv/latest/235265-imran-khan-wasim-akram-named-in-cricinfos-all-time-world-cup-xi");
+            startActivity(f);
+        }else if(position == 6) {
+            Intent g;
+            g = new Intent(this, WebViewActivity.class);
+            g.putExtra("link", "https://www.geo.tv/latest/235256-sri-lanka-troops-join-hunt-for-bomb-attack-suspects");
+            startActivity(g);
+        }else if(position == 7) {
+            Intent h;
+            h = new Intent(this, WebViewActivity.class);
+            h.putExtra("link", "https://www.geo.tv/latest/235271-former-vice-president-joe-biden-to-make-third-run-for-the-white-house");
+            startActivity(h);
+        }else if(position == 8) {
+            Intent i;
+            i = new Intent(this, WebViewActivity.class);
+            i.putExtra("link", "https://www.geo.tv/latest/235279-jahangir-tareen-meets-over-11-mnas-in-last-24-hours");
+            startActivity(i);
+        }else if(position == 9) {
+            Intent j;
+            j = new Intent(this, WebViewActivity.class);
+            j.putExtra("link", "https://www.geo.tv/latest/235185-guardiolas-man-city-raise-the-bar-as-man-utd-fall-behind");
+            startActivity(j);
+        }else if(position == 10) {
+            Intent k;
+            k = new Intent(this, WebViewActivity.class);
+            k.putExtra("link", "");
+            startActivity(k);
         }else{ }
     }
 }

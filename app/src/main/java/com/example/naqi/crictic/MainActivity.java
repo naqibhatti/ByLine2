@@ -55,12 +55,11 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         imag.add(getResources().getDrawable(R.drawable.i));
         imag.add(getResources().getDrawable(R.drawable.bilawal));
         imag.add(getResources().getDrawable(R.drawable.iw));
-        imag.add(getResources().getDrawable(R.drawable.sril));
+        imag.add(getResources().getDrawable(R.drawable.srila));
         imag.add(getResources().getDrawable(R.drawable.joe));
         imag.add(getResources().getDrawable(R.drawable.jah));
         imag.add(getResources().getDrawable(R.drawable.foot));
         imag.add(getResources().getDrawable(R.drawable.pesh));
-
 
         matches.add("Asad Umar Outsted!:New Finance Minister Who?");
         matches.add("Sri Lanka Terrorist Attacks: Over 290 Dead.");
@@ -73,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         matches.add("Jahangir Tareen meets over 11 MNAs in last 24 hours");
         matches.add("Guardiola's Man City raise the bar as Man Utd fall behind");
         matches.add("Peshawar polio campaign: Faking childrens' illness was a pre-planned conspiracy, says report");
+
 
         RecyclerView rc2 = findViewById(R.id.rvAnimals1);
 

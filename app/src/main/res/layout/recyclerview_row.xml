@@ -9,7 +9,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="330dp"
         android:id="@+id/card"
         app:cardCornerRadius="10dp"
         android:layout_margin="5dp"
@@ -20,25 +20,24 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/newsimage"
-            android:layout_width="match_parent"
-            android:scaleType="centerCrop"
-            android:layout_height="220dp" />
-
+            <ImageView
+                android:id="@+id/newsimage"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_height="220dp" />
 
             <TextView
                 android:id="@+id/tvAnimalName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:layout_marginTop="6dp"
+                android:lineSpacingMultiplier="0.9"
                 android:textColor="#000000" />
-
 
             <TextView
                 android:id="@+id/by"
@@ -50,7 +49,28 @@
                 android:textSize="11sp"
                 android:text="By: Naqi Bhatti"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="9dp"
+                android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/geo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="NOW"
+                    android:textSize="11sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/colorLightGray"/>
+
+            </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

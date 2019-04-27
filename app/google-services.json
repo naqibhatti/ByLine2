@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "782752569041",
+    "firebase_url": "https://byline-d8dee.firebaseio.com",
+    "project_id": "byline-d8dee",
+    "storage_bucket": "byline-d8dee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782752569041:android:04deb743b3e370c6",
+        "android_client_info": {
+          "package_name": "com.example.naqi.crictic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782752569041-s0k8kf2i2t7dqa6pqgtb54rcq1qgp0ph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR2vULPpR5Mv24Y1zbpxv6B4vhbBH08JA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782752569041-s0k8kf2i2t7dqa6pqgtb54rcq1qgp0ph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -79,6 +79,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         ImageView newImage;
         CardView cd;
 
+        CardView out;
+
         TextView myTextView;
 
         TextView byText;
@@ -96,8 +98,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             cd = itemView.findViewById(R.id.card);
 
             newImage = (ImageView) itemView.findViewById(R.id.newsimage);
+            out = itemView.findViewById(R.id.corn);
 
-//            cd.setCardBackgroundColor(yellow);
+            out.setBackgroundResource(R.drawable.cardbglighter);
 
             itemView.setOnClickListener(this);
         }

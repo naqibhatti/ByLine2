@@ -7,17 +7,25 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -34,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         getSupportActionBar().setLogo(R.drawable.byt);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
  **/
+
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.icon_lay);
 
@@ -48,6 +57,19 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
         ArrayList<String> matches = new ArrayList();
         ArrayList<Drawable> imag = new ArrayList();
+
+        ArrayList<String> ArtiTitles = getIntent().getStringArrayListExtra("ArticlesTitles");
+        ArrayList<String> ArtiUrls = getIntent().getStringArrayListExtra("ArticlesUrls");
+        ArrayList<String> ArtiImgUrls = getIntent().getStringArrayListExtra("ArticlesImgUrls");
+
+        Log.d("TAG","MAIN ACTIVITY");
+        for (int i = 0; i < ArtiTitles.size(); i++) {
+            Log.d("TAG", ArtiTitles.get(i));
+            Log.d("TAG", ArtiUrls.get(i));
+            Log.d("TAG", ArtiImgUrls.get(i));
+        }
+
+
 
         imag.add(getResources().getDrawable(R.drawable.asad));
         imag.add(getResources().getDrawable(R.drawable.sril));
@@ -82,8 +104,8 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         rc2.setLayoutManager(layoutManager1);
         rc2.setNestedScrollingEnabled(false);
 
-        adapter2 = new MyRecyclerViewAdapter(this, matches, imag);
-
+        adapter2 = new MyRecyclerViewAdapter(this, ArtiTitles, ArtiImgUrls);
+//        Log.d("TAG", "View set");
         adapter2.setClickListener(this);
 
         rc2.setAdapter(adapter2);

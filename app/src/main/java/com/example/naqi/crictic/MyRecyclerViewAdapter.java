@@ -1,23 +1,29 @@
 package com.example.naqi.crictic;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
     private List<String> mData;
-    private List<Drawable> mImage;
+    private List<String> mImage;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
@@ -29,7 +35,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<String> data, List<Drawable> mData) {
+    MyRecyclerViewAdapter(Context context, List<String> data, List<String> mData) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.mImage = mData;
@@ -53,11 +59,27 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         String animal = mData.get(position);
-        Drawable ani = mImage.get(position);
+        String ani = mImage.get(position);
 
-        holder.newImage.setImageDrawable(ani);
-        holder.myTextView.setText(animal);
-
+        try {
+            Bitmap bmp = null;
+            URL url = null;
+            try {
+                url = new URL(ani);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            try {
+                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                Log.d("TAG", "iMAGE LOADED");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            holder.myTextView.setText(animal);
+            holder.newImage.setImageBitmap(bmp);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     //    if(position==0){
     //        holder.cd.setCardBackgroundColor(Color.parseColor("#673AB7"));
     //    }

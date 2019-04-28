@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.v7.widget.CardView;
@@ -16,8 +17,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 
@@ -26,6 +33,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private List<String> mImage;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+
+    private Context context;
 
     Typeface typeface;
     Typeface typeFace2;
@@ -61,25 +70,45 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         String animal = mData.get(position);
         String ani = mImage.get(position);
 
+        holder.myTextView.setText(animal);
+        URI url = null;
         try {
-            Bitmap bmp = null;
-            URL url = null;
-            try {
-                url = new URL(ani);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            try {
-                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                Log.d("TAG", "iMAGE LOADED");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            holder.myTextView.setText(animal);
-            holder.newImage.setImageBitmap(bmp);
-        }catch(Exception e){
+            url = new URI(ani);
+        }catch (URISyntaxException e) {
             e.printStackTrace();
         }
+
+        Picasso.get()
+                .load(String.valueOf(url))
+                .into(holder.newImage);
+
+//        try {
+//            Bitmap bmp = null;
+//            URL url = null;
+//
+//            try {
+//                url = new URL(ani);
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            }
+//            try {
+//                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//                connection.setDoInput(true);
+//                connection.connect();
+//                InputStream input = connection.getInputStream();
+//                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+//
+//                holder.newImage.setImageBitmap(myBitmap);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch(NullPointerException f){
+//                f.printStackTrace();
+//                Log.d("error", "Did not load");
+//            }
+//        }catch(Exception e){
+//            e.printStackTrace();
+//            Log.d("error", "Not");
+//        }
     //    if(position==0){
     //        holder.cd.setCardBackgroundColor(Color.parseColor("#673AB7"));
     //    }
@@ -147,4 +176,15 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
+//    Bitmap drawable_from_url(String url) throws java.net.MalformedURLException, java.io.IOException {
+//
+//        HttpURLConnection connection = (HttpURLConnection)new URL(url) .openConnection();
+//        connection.setRequestProperty("User-agent","Mozilla/4.0");
+//
+//        connection.connect();
+//        InputStream input = connection.getInputStream();
+//
+//        return BitmapFactory.decodeStream(input);
+//    }
 }

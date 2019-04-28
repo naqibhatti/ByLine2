@@ -71,29 +71,29 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
 
 
-        imag.add(getResources().getDrawable(R.drawable.asad));
-        imag.add(getResources().getDrawable(R.drawable.sril));
-        imag.add(getResources().getDrawable(R.drawable.nab));
-        imag.add(getResources().getDrawable(R.drawable.i));
-        imag.add(getResources().getDrawable(R.drawable.bilawal));
-        imag.add(getResources().getDrawable(R.drawable.iw));
-        imag.add(getResources().getDrawable(R.drawable.srila));
-        imag.add(getResources().getDrawable(R.drawable.joe));
-        imag.add(getResources().getDrawable(R.drawable.jah));
-        imag.add(getResources().getDrawable(R.drawable.foot));
-        imag.add(getResources().getDrawable(R.drawable.pesh));
-
-        matches.add("Asad Umar Outsted!:New Finance Minister Who?");
-        matches.add("Sri Lanka Terrorist Attacks: Over 290 Dead.");
-        matches.add("NAB inquiry: Sharif's Dilemma");
-        matches.add("Pakistan Settles on World Cup Squad: See the ins and outs");
-        matches.add("PM Imran’s ‘sahiba’ comment sends a message that being a women is an insult: Bilawal");
-        matches.add("Imran Khan, Wasim Akram named in Cricinfo’s all-time World Cup XI");
-        matches.add("Sri Lanka troops join hunt for bomb attack suspects");
-        matches.add("Former Vice President Joe Biden to make third run for the White House");
-        matches.add("Jahangir Tareen meets over 11 MNAs in last 24 hours");
-        matches.add("Guardiola's Man City raise the bar as Man Utd fall behind");
-        matches.add("Peshawar polio campaign: Faking childrens' illness was a pre-planned conspiracy, says report");
+//        imag.add(getResources().getDrawable(R.drawable.asad));
+//        imag.add(getResources().getDrawable(R.drawable.sril));
+//        imag.add(getResources().getDrawable(R.drawable.nab));
+//        imag.add(getResources().getDrawable(R.drawable.i));
+//        imag.add(getResources().getDrawable(R.drawable.bilawal));
+//        imag.add(getResources().getDrawable(R.drawable.iw));
+//        imag.add(getResources().getDrawable(R.drawable.srila));
+//        imag.add(getResources().getDrawable(R.drawable.joe));
+//        imag.add(getResources().getDrawable(R.drawable.jah));
+//        imag.add(getResources().getDrawable(R.drawable.foot));
+//        imag.add(getResources().getDrawable(R.drawable.pesh));
+//
+//        matches.add("Asad Umar Outsted!:New Finance Minister Who?");
+//        matches.add("Sri Lanka Terrorist Attacks: Over 290 Dead.");
+//        matches.add("NAB inquiry: Sharif's Dilemma");
+//        matches.add("Pakistan Settles on World Cup Squad: See the ins and outs");
+//        matches.add("PM Imran’s ‘sahiba’ comment sends a message that being a women is an insult: Bilawal");
+//        matches.add("Imran Khan, Wasim Akram named in Cricinfo’s all-time World Cup XI");
+//        matches.add("Sri Lanka troops join hunt for bomb attack suspects");
+//        matches.add("Former Vice President Joe Biden to make third run for the White House");
+//        matches.add("Jahangir Tareen meets over 11 MNAs in last 24 hours");
+//        matches.add("Guardiola's Man City raise the bar as Man Utd fall behind");
+//        matches.add("Peshawar polio campaign: Faking childrens' illness was a pre-planned conspiracy, says report");
 
 
         RecyclerView rc2 = findViewById(R.id.rvAnimals1);

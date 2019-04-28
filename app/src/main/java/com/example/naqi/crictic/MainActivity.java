@@ -33,14 +33,15 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
     MyRecyclerViewAdapter adapter;
     MyRecyclerViewAdapter adapter2;
+    ArrayList<String> ArtiUrls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 /**     getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.byt);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+ getSupportActionBar().setLogo(R.drawable.byt);
+ getSupportActionBar().setDisplayUseLogoEnabled(true);
  **/
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -59,16 +60,15 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         ArrayList<Drawable> imag = new ArrayList();
 
         ArrayList<String> ArtiTitles = getIntent().getStringArrayListExtra("ArticlesTitles");
-        ArrayList<String> ArtiUrls = getIntent().getStringArrayListExtra("ArticlesUrls");
+        ArtiUrls = getIntent().getStringArrayListExtra("ArticlesUrls");
         ArrayList<String> ArtiImgUrls = getIntent().getStringArrayListExtra("ArticlesImgUrls");
 
-        Log.d("TAG","MAIN ACTIVITY");
+        Log.d("TAG", "MAIN ACTIVITY");
         for (int i = 0; i < ArtiTitles.size(); i++) {
             Log.d("TAG", ArtiTitles.get(i));
             Log.d("TAG", ArtiUrls.get(i));
             Log.d("TAG", ArtiImgUrls.get(i));
         }
-
 
 
 //        imag.add(getResources().getDrawable(R.drawable.asad));
@@ -113,93 +113,94 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         RecyclerView recyclerView = findViewById(R.id.rvAnimals);
 
         /**LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+         = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
-        recyclerView.setLayoutManager(layoutManager);
+         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new MyRecyclerViewAdapter(this, matches);
+         adapter = new MyRecyclerViewAdapter(this, matches);
 
-        adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);**/
+         adapter.setClickListener(this);
+         recyclerView.setAdapter(adapter);**/
     }
 
-/**    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-   @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemSelected = item.getItemId();
-        if(itemSelected == R.id.action_search){
-            Context context = MainActivity.this;
-            String message = "Search Clicked";
-
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-**/
+    /**
+     * @Override public boolean onCreateOptionsMenu(Menu menu) {
+     * getMenuInflater().inflate(R.menu.main, menu);
+     * return true;
+     * }
+     * @Override public boolean onOptionsItemSelected(MenuItem item) {
+     * int itemSelected = item.getItemId();
+     * if(itemSelected == R.id.action_search){
+     * Context context = MainActivity.this;
+     * String message = "Search Clicked";
+     * <p>
+     * Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+     * }
+     * return super.onOptionsItemSelected(item);
+     * }
+     **/
     @Override
     public void onItemClick(View view, int position) {
         Toast.makeText(this, "You clicked " + adapter2.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-
-        if(position == 0){
-            Intent a;
-            a = new Intent(this,    WebViewActivity.class);
-            a.putExtra("link", "https://www.geo.tv/latest/234568-stepping-down-doesnt-mean-i-will-not-support-pm-imran-asad-umar");
-            startActivity(a);
-        }else if(position == 1){
-            Intent b;
-            b = new Intent(this, WebViewActivity.class);
-            b.putExtra("link", "https://foreignpolicy.com/2019/04/21/whats-behind-the-terrorist-attacks-in-sri-lanka/");
-            startActivity(b);
-        }else if(position == 2){
-            Intent c;
-            c = new Intent(this, WebViewActivity.class);
-            c.putExtra("link", "https://dunyanews.tv/en/Pakistan/488615-LNG-scam-NAB-investigates-Shahid-Khaqan-Abbasi");
-            startActivity(c);
-        }else if(position == 3) {
-            Intent d;
-            d = new Intent(this, WebViewActivity.class);
-            d.putExtra("link", "https://www.geo.tv/latest/235019-pakistan-team-arrives-in-london-for-england-series-world-cup");
-            startActivity(d);
-        }else if(position == 4) {
-            Intent e;
-            e = new Intent(this, WebViewActivity.class);
-            e.putExtra("link", "https://www.geo.tv/latest/235297-is-pm-imran-saying-that-being-a-woman-is-a-curse-asks-bilawal");
-            startActivity(e);
-        }else if(position == 5) {
-            Intent f;
-            f = new Intent(this, WebViewActivity.class);
-            f.putExtra("link", "https://www.geo.tv/latest/235265-imran-khan-wasim-akram-named-in-cricinfos-all-time-world-cup-xi");
-            startActivity(f);
-        }else if(position == 6) {
-            Intent g;
-            g = new Intent(this, WebViewActivity.class);
-            g.putExtra("link", "https://www.geo.tv/latest/235256-sri-lanka-troops-join-hunt-for-bomb-attack-suspects");
-            startActivity(g);
-        }else if(position == 7) {
-            Intent h;
-            h = new Intent(this, WebViewActivity.class);
-            h.putExtra("link", "https://www.geo.tv/latest/235271-former-vice-president-joe-biden-to-make-third-run-for-the-white-house");
-            startActivity(h);
-        }else if(position == 8) {
-            Intent i;
-            i = new Intent(this, WebViewActivity.class);
-            i.putExtra("link", "https://www.geo.tv/latest/235279-jahangir-tareen-meets-over-11-mnas-in-last-24-hours");
-            startActivity(i);
-        }else if(position == 9) {
-            Intent j;
-            j = new Intent(this, WebViewActivity.class);
-            j.putExtra("link", "https://www.geo.tv/latest/235185-guardiolas-man-city-raise-the-bar-as-man-utd-fall-behind");
-            startActivity(j);
-        }else if(position == 10) {
-            Intent k;
-            k = new Intent(this, WebViewActivity.class);
-            k.putExtra("link", "");
-            startActivity(k);
-        }else{ }
+        for (int i = 0; i < ArtiUrls.size(); i++) {
+            if (position == i) {
+                Intent a;
+                a = new Intent(this, WebViewActivity.class);
+                String urlToPass = ArtiUrls.get(i);
+                a.putExtra("link", urlToPass);
+                startActivity(a);
+            }
+//        }else if(position == 1){
+//            Intent b;
+//            b = new Intent(this, WebViewActivity.class);
+//            b.putExtra("link", "https://foreignpolicy.com/2019/04/21/whats-behind-the-terrorist-attacks-in-sri-lanka/");
+//            startActivity(b);
+//        }else if(position == 2){
+//            Intent c;
+//            c = new Intent(this, WebViewActivity.class);
+//            c.putExtra("link", "https://dunyanews.tv/en/Pakistan/488615-LNG-scam-NAB-investigates-Shahid-Khaqan-Abbasi");
+//            startActivity(c);
+//        }else if(position == 3) {
+//            Intent d;
+//            d = new Intent(this, WebViewActivity.class);
+//            d.putExtra("link", "https://www.geo.tv/latest/235019-pakistan-team-arrives-in-london-for-england-series-world-cup");
+//            startActivity(d);
+//        }else if(position == 4) {
+//            Intent e;
+//            e = new Intent(this, WebViewActivity.class);
+//            e.putExtra("link", "https://www.geo.tv/latest/235297-is-pm-imran-saying-that-being-a-woman-is-a-curse-asks-bilawal");
+//            startActivity(e);
+//        }else if(position == 5) {
+//            Intent f;
+//            f = new Intent(this, WebViewActivity.class);
+//            f.putExtra("link", "https://www.geo.tv/latest/235265-imran-khan-wasim-akram-named-in-cricinfos-all-time-world-cup-xi");
+//            startActivity(f);
+//        }else if(position == 6) {
+//            Intent g;
+//            g = new Intent(this, WebViewActivity.class);
+//            g.putExtra("link", "https://www.geo.tv/latest/235256-sri-lanka-troops-join-hunt-for-bomb-attack-suspects");
+//            startActivity(g);
+//        }else if(position == 7) {
+//            Intent h;
+//            h = new Intent(this, WebViewActivity.class);
+//            h.putExtra("link", "https://www.geo.tv/latest/235271-former-vice-president-joe-biden-to-make-third-run-for-the-white-house");
+//            startActivity(h);
+//        }else if(position == 8) {
+//            Intent i;
+//            i = new Intent(this, WebViewActivity.class);
+//            i.putExtra("link", "https://www.geo.tv/latest/235279-jahangir-tareen-meets-over-11-mnas-in-last-24-hours");
+//            startActivity(i);
+//        }else if(position == 9) {
+//            Intent j;
+//            j = new Intent(this, WebViewActivity.class);
+//            j.putExtra("link", "https://www.geo.tv/latest/235185-guardiolas-man-city-raise-the-bar-as-man-utd-fall-behind");
+//            startActivity(j);
+//        }else if(position == 10) {
+//            Intent k;
+//            k = new Intent(this, WebViewActivity.class);
+//            k.putExtra("link", "");
+//            startActivity(k);
+//        }else{ }
+        }
     }
 }

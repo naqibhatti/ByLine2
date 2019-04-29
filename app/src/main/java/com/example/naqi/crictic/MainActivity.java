@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     MyRecyclerViewAdapter adapter;
     MyRecyclerViewAdapter adapter2;
     ArrayList<String> ArtiUrls;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,28 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
             Log.d("TAG", ArtiImgUrls.get(i));
         }
 
+//Musa do something with this:
+//        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+//                    findViewById(R.id.bottom_navigation);
+//
+//            bottomNavigationView.setOnNavigationItemSelectedListener(
+//                    new BottomNavigationView.OnNavigationItemSelectedListener() {
+//                        @Override
+//                        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                            switch (item.getItemId()) {
+//                                case R.id.action_favorites:
+//
+//                                    break;
+//                                case R.id.action_schedules:
+//
+//                                    break;
+//                                case R.id.action_music:
+//
+//                                    break;
+//                            }
+//                            return false;
+//                        }
+//                    });
 
 //        imag.add(getResources().getDrawable(R.drawable.asad));
 //        imag.add(getResources().getDrawable(R.drawable.sril));
@@ -94,6 +118,8 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 //        matches.add("Jahangir Tareen meets over 11 MNAs in last 24 hours");
 //        matches.add("Guardiola's Man City raise the bar as Man Utd fall behind");
 //        matches.add("Peshawar polio campaign: Faking childrens' illness was a pre-planned conspiracy, says report");
+
+
 
 
         RecyclerView rc2 = findViewById(R.id.rvAnimals1);
@@ -150,6 +176,8 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
                 a.putExtra("link", urlToPass);
                 startActivity(a);
             }
+
+
 //        }else if(position == 1){
 //            Intent b;
 //            b = new Intent(this, WebViewActivity.class);

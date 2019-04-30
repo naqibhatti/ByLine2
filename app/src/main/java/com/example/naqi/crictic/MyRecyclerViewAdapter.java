@@ -1,6 +1,8 @@
 package com.example.naqi.crictic;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -36,6 +39,10 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private List<String> mDesc;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+
+    public MainActivity main2;
+
+    public static boolean webTrue;
 
     private Context context;
 
@@ -134,7 +141,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
 
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         ImageView newImage;
         CardView cd;
 
@@ -164,12 +171,19 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 //            out.setBackgroundResource(R.drawable.cardbglighter);
 
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
 
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            Log.d("toast", "longgggggg");
+            return true;
         }
     }
 

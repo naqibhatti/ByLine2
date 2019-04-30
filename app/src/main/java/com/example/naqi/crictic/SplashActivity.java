@@ -41,7 +41,7 @@ public class SplashActivity extends AppCompatActivity {
         ImageView myView = (ImageView) findViewById(R.id.splash);
 
 
-        for (int i = 1; i < 11; i++ ){
+        for (int i = 1; i < 50; i++ ){
             DocumentReference docRef = db.collection("Geo").document("Article"+Integer.toString(i));
 
 
@@ -105,6 +105,8 @@ public class SplashActivity extends AppCompatActivity {
                     ArrayList<String> ArticleUrls = new ArrayList();
                     ArrayList<String> ArticleImgUrls = new ArrayList();
                     ArrayList<String> ArticleDesc = new ArrayList();
+                    ArrayList<String> ArticleText = new ArrayList();
+
 
                     for (int i = 0; i < Articles.size(); i++){
                         Log.d("TAG", Articles.get(i).getTitle());
@@ -112,6 +114,8 @@ public class SplashActivity extends AppCompatActivity {
                         ArticleUrls.add(Articles.get(i).getLink());
                         ArticleImgUrls.add(Articles.get(i).getImage_link());
                         ArticleDesc.add(Articles.get(i).getDescription());
+                        ArticleText.add(Articles.get(i).getText());
+
                     }
 
                     Intent i = new Intent(SplashActivity.this, MainActivity.class);
@@ -119,6 +123,7 @@ public class SplashActivity extends AppCompatActivity {
                     i.putStringArrayListExtra("ArticlesUrls", ArticleUrls);
                     i.putStringArrayListExtra("ArticlesImgUrls", ArticleImgUrls);
                     i.putStringArrayListExtra("ArticlesDesc", ArticleDesc);
+                    i.putStringArrayListExtra("ArticlesText", ArticleText);
                     startActivity(i);
 
                     // close this activity

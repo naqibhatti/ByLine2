@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     MyRecyclerViewAdapter adapter;
     MyRecyclerViewAdapter adapter2;
     ArrayList<String> ArtiUrls;
+    ArrayList<String> ArtiText;
+    ArrayList<String> ArtiTitles;
+    ArrayList<String> ArtiImgUrls;
+    ArrayList<String> ArtiDesc;
+
 
 
     @Override
@@ -61,10 +66,11 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         ArrayList<String> matches = new ArrayList();
         ArrayList<Drawable> imag = new ArrayList();
 
-        ArrayList<String> ArtiTitles = getIntent().getStringArrayListExtra("ArticlesTitles");
+        ArtiTitles = getIntent().getStringArrayListExtra("ArticlesTitles");
         ArtiUrls = getIntent().getStringArrayListExtra("ArticlesUrls");
-        ArrayList<String> ArtiImgUrls = getIntent().getStringArrayListExtra("ArticlesImgUrls");
-        ArrayList<String> ArtiDesc = getIntent().getStringArrayListExtra("ArticlesDesc");
+        ArtiImgUrls = getIntent().getStringArrayListExtra("ArticlesImgUrls");
+        ArtiDesc = getIntent().getStringArrayListExtra("ArticlesDesc");
+        ArtiText = getIntent().getStringArrayListExtra("ArticlesText");
 
         Log.d("TAG", "MAIN ACTIVITY");
         for (int i = 0; i < ArtiTitles.size(); i++) {
@@ -121,8 +127,6 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 //        matches.add("Peshawar polio campaign: Faking childrens' illness was a pre-planned conspiracy, says report");
 
 
-
-
         RecyclerView rc2 = findViewById(R.id.rvAnimals1);
 
         LinearLayoutManager layoutManager1
@@ -172,13 +176,22 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         for (int i = 0; i < ArtiUrls.size(); i++) {
             if (position == i) {
                 Intent a;
-                a = new Intent(this, WebViewActivity.class);
+                a = new Intent(this, ArticleViewActivity.class);
+
+                String articleToPass = ArtiText.get(i);
                 String urlToPass = ArtiUrls.get(i);
+                String headline = ArtiTitles.get(i);
+                String imageUrl = ArtiImgUrls.get(i);
+                String description = ArtiDesc.get(i);
+
                 a.putExtra("link", urlToPass);
+                a.putExtra("text", articleToPass);
+                a.putExtra("description", description);
+                a.putExtra("Image", imageUrl);
+                a.putExtra("headline", headline);
+                a.putExtra("name", headline);
                 startActivity(a);
             }
-
-
 //        }else if(position == 1){
 //            Intent b;
 //            b = new Intent(this, WebViewActivity.class);
@@ -229,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 //            k = new Intent(this, WebViewActivity.class);
 //            k.putExtra("link", "");
 //            startActivity(k);
-//        }else{ }
+//        }else{
         }
     }
 }

@@ -30,8 +30,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
+import static com.example.naqi.crictic.MyRecyclerViewAdapter.webTrue;
 
-public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
+
+public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener, MyRecyclerViewAdapter.ItemLongClickListener {
     MyRecyclerViewAdapter adapter;
     MyRecyclerViewAdapter adapter2;
     ArrayList<String> ArtiUrls;
@@ -141,6 +143,8 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
         rc2.setAdapter(adapter2);
 
+        adapter2.setLongClickListener(this);
+
         RecyclerView recyclerView = findViewById(R.id.rvAnimals);
 
         /**LinearLayoutManager layoutManager
@@ -243,6 +247,21 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 //            k.putExtra("link", "");
 //            startActivity(k);
 //        }else{
+        }
+    }
+    @Override
+    public void onItemLongClick(View view, int position) {
+        Toast.makeText(this, "You clicked " + adapter2.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+        for (int i = 0; i < ArtiUrls.size(); i++) {
+            if (position == i) {
+                Intent a;
+                a = new Intent(this, WebViewActivity.class);
+                String urlToPass = ArtiUrls.get(i);
+
+                a.putExtra("link", urlToPass);
+
+                startActivity(a);
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private List<String> mDesc;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    private ItemLongClickListener mLClickListener;
 
     public MainActivity main2;
 
@@ -182,6 +183,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         @Override
         public boolean onLongClick(View v) {
+            if (mLClickListener != null) mLClickListener.onItemLongClick(v, getAdapterPosition());
+//            webTrue = true;
             Log.d("toast", "longgggggg");
             return true;
         }
@@ -201,5 +204,16 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+    }
+
+    // allows clicks events to be caught
+    void setLongClickListener(ItemLongClickListener itemLongClickListener) {
+        this.mLClickListener = itemLongClickListener;
+    }
+
+
+    // parent activity will implement this method to respond to click events
+    public interface ItemLongClickListener {
+        void onItemLongClick(View view, int position);
     }
 }

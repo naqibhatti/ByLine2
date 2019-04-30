@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 4000;
+    private static int SPLASH_TIME_OUT = 8000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,17 +104,21 @@ public class SplashActivity extends AppCompatActivity {
                     ArrayList<String> ArticleTitles = new ArrayList();
                     ArrayList<String> ArticleUrls = new ArrayList();
                     ArrayList<String> ArticleImgUrls = new ArrayList();
+                    ArrayList<String> ArticleDesc = new ArrayList();
 
                     for (int i = 0; i < Articles.size(); i++){
                         Log.d("TAG", Articles.get(i).getTitle());
                         ArticleTitles.add(Articles.get(i).getTitle());
                         ArticleUrls.add(Articles.get(i).getLink());
                         ArticleImgUrls.add(Articles.get(i).getImage_link());
+                        ArticleDesc.add(Articles.get(i).getDescription());
                     }
+
                     Intent i = new Intent(SplashActivity.this, MainActivity.class);
                     i.putStringArrayListExtra("ArticlesTitles", ArticleTitles);
                     i.putStringArrayListExtra("ArticlesUrls", ArticleUrls);
                     i.putStringArrayListExtra("ArticlesImgUrls", ArticleImgUrls);
+                    i.putStringArrayListExtra("ArticlesDesc", ArticleDesc);
                     startActivity(i);
 
                     // close this activity

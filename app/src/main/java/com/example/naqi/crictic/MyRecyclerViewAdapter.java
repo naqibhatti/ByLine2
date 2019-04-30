@@ -31,6 +31,7 @@ import java.util.List;
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
     private List<String> mData;
     private List<String> mImage;
+    private List<String> mDesc;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
@@ -40,19 +41,22 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     Typeface typeFace2;
     Typeface typeFace3;
     Typeface typeFace4;
+    Typeface typeFace5;
     int yellow;
 
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<String> data, List<String> mData) {
+    MyRecyclerViewAdapter(Context context, List<String> data, List<String> mData, List<String>  desc) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.mImage = mData;
+        this.mDesc = desc;
 
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/AbrilFatface-Regular.ttf");
         typeFace2 = Typeface.createFromAsset(context.getAssets(), "fonts/adam.otf");
         typeFace3 = Typeface.createFromAsset(context.getAssets(), "fonts/zebrazil.ttf");
         typeFace4 = Typeface.createFromAsset(context.getAssets(), "fonts/anson.otf");
+        typeFace5 = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Bold.ttf");
 
         yellow = context.getResources().getColor(R.color.Yellow);
     }
@@ -69,8 +73,10 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public void onBindViewHolder(ViewHolder holder, int position) {
         String animal = mData.get(position);
         String ani = mImage.get(position);
+        String description = mDesc.get(position);
 
         holder.myTextView.setText(animal);
+        holder.myDescription.setText(description);
         URI url = null;
         try {
             url = new URI(ani);
@@ -133,6 +139,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         CardView out;
 
         TextView myTextView;
+        TextView myDescription;
 
         TextView byText;
 
@@ -140,6 +147,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             super(itemView);
 
             myTextView = itemView.findViewById(R.id.tvAnimalName);
+            myDescription = itemView.findViewById(R.id.by);
 
             byText = itemView.findViewById(R.id.by);
             byText.setTypeface(typeFace2);
@@ -151,7 +159,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             newImage = (ImageView) itemView.findViewById(R.id.newsimage);
             out = itemView.findViewById(R.id.corn);
 
-            out.setBackgroundResource(R.drawable.cardbglighter);
+//            out.setBackgroundResource(R.drawable.cardbglighter);
 
             itemView.setOnClickListener(this);
         }
@@ -177,14 +185,4 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         void onItemClick(View view, int position);
     }
 
-//    Bitmap drawable_from_url(String url) throws java.net.MalformedURLException, java.io.IOException {
-//
-//        HttpURLConnection connection = (HttpURLConnection)new URL(url) .openConnection();
-//        connection.setRequestProperty("User-agent","Mozilla/4.0");
-//
-//        connection.connect();
-//        InputStream input = connection.getInputStream();
-//
-//        return BitmapFactory.decodeStream(input);
-//    }
 }

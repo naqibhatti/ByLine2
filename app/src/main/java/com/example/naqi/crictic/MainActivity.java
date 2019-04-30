@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         ArrayList<String> ArtiTitles = getIntent().getStringArrayListExtra("ArticlesTitles");
         ArtiUrls = getIntent().getStringArrayListExtra("ArticlesUrls");
         ArrayList<String> ArtiImgUrls = getIntent().getStringArrayListExtra("ArticlesImgUrls");
+        ArrayList<String> ArtiDesc = getIntent().getStringArrayListExtra("ArticlesDesc");
 
         Log.d("TAG", "MAIN ACTIVITY");
         for (int i = 0; i < ArtiTitles.size(); i++) {
@@ -130,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         rc2.setLayoutManager(layoutManager1);
         rc2.setNestedScrollingEnabled(false);
 
-        adapter2 = new MyRecyclerViewAdapter(this, ArtiTitles, ArtiImgUrls);
+        adapter2 = new MyRecyclerViewAdapter(this, ArtiTitles, ArtiImgUrls, ArtiDesc);
 //        Log.d("TAG", "View set");
         adapter2.setClickListener(this);
 

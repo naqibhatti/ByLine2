@@ -27,6 +27,7 @@ import java.util.ArrayList;
 public class SplashActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 8000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +42,10 @@ public class SplashActivity extends AppCompatActivity {
         ImageView myView = (ImageView) findViewById(R.id.splash);
 
 
-        for (int i = 1; i < 50; i++ ){
-            DocumentReference docRef = db.collection("Geo").document("Article"+Integer.toString(i));
-
-
+        for (int i = 1; i < 40; i++) {
+            DocumentReference docRef2 = db.collection("Geo_Urdu").document("Article" + Integer.toString(i));
             final int finalI = i;
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
@@ -54,7 +53,7 @@ public class SplashActivity extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         Article city = document.toObject(Article.class);
                         Articles.add(city);
-                        Log.d("TAG", "Article"+Integer.toString(finalI)+ ": " + city.getTitle());
+                        Log.d("TAG", "Article" + Integer.toString(finalI) + ": " + city.getTitle());
 
                         //matches.add(city.getTitle());
 
@@ -64,31 +63,117 @@ public class SplashActivity extends AppCompatActivity {
                 }
             });
         }
+        for (int i = 1; i < 20; i++) {
+            DocumentReference docRef3 = db.collection("Dawn").document("Article" + Integer.toString(i));
+            final int finalI = i;
+            docRef3.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        // Document found in the offline cache
+                        DocumentSnapshot document = task.getResult();
+                        Article city = document.toObject(Article.class);
+                        Articles.add(city);
+                        Log.d("TAG", "Article" + Integer.toString(finalI) + ": " + city.getTitle());
+
+                        //matches.add(city.getTitle());
+
+                    } else {
+                        Log.d("TAG", "Cached get failed: ", task.getException());
+                    }
+                }
+            });
+        }
+        for (int i = 1; i < 5; i++) {
+            DocumentReference docRef4 = db.collection("MangoFuck").document("Article" + Integer.toString(i));
+            final int finalI = i;
+            docRef4.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        // Document found in the offline cache
+                        DocumentSnapshot document = task.getResult();
+                        Article city = document.toObject(Article.class);
+                        Articles.add(city);
+                        Log.d("TAG", "Article" + Integer.toString(finalI) + ": " + city.getTitle());
+
+                        //matches.add(city.getTitle());
+
+                    } else {
+                        Log.d("TAG", "Cached get failed: ", task.getException());
+                    }
+                }
+            });
+        }
+        for (int i = 1; i < 10; i++) {
+            DocumentReference docRef2 = db.collection("Tribune").document("Article" + Integer.toString(i));
+            final int finalI = i;
+            docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        // Document found in the offline cache
+                        DocumentSnapshot document = task.getResult();
+                        Article city = document.toObject(Article.class);
+                        Articles.add(city);
+                        Log.d("TAG", "Article" + Integer.toString(finalI) + ": " + city.getTitle());
+
+                        //matches.add(city.getTitle());
+
+                    } else {
+                        Log.d("TAG", "Cached get failed: ", task.getException());
+                    }
+                }
+            });
+        }
+            for (int i = 1; i < 40; i++) {
+                DocumentReference docRef = db.collection("Geo").document("Article" + Integer.toString(i));
 
 
-        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(myView, "alpha",  1f, .3f);
-        fadeOut.setDuration(1500);
+                final int finalI = i;
+                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            // Document found in the offline cache
+                            DocumentSnapshot document = task.getResult();
+                            Article city = document.toObject(Article.class);
+                            Articles.add(city);
+                            Log.d("TAG", "Article" + Integer.toString(finalI) + ": " + city.getTitle());
 
-        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(myView, "alpha", .3f, 1f);
-        fadeIn.setDuration(1500);
+                            //matches.add(city.getTitle());
 
-        final AnimatorSet mAnimationSet = new AnimatorSet();
-
-        mAnimationSet.play(fadeIn).after(fadeOut);
-
-        mAnimationSet.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-                mAnimationSet.start();
+                        } else {
+                            Log.d("TAG", "Cached get failed: ", task.getException());
+                        }
+                    }
+                });
             }
-        });
-        mAnimationSet.start();
 
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        getWindow().setStatusBarColor(Color.WHITE);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            ObjectAnimator fadeOut = ObjectAnimator.ofFloat(myView, "alpha", 1f, .3f);
+            fadeOut.setDuration(1500);
+
+            ObjectAnimator fadeIn = ObjectAnimator.ofFloat(myView, "alpha", .3f, 1f);
+            fadeIn.setDuration(1500);
+
+            final AnimatorSet mAnimationSet = new AnimatorSet();
+
+            mAnimationSet.play(fadeIn).after(fadeOut);
+
+            mAnimationSet.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    mAnimationSet.start();
+                }
+            });
+            mAnimationSet.start();
+
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            getWindow().setStatusBarColor(Color.WHITE);
+
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
             new Handler().postDelayed(new Runnable() {
 
@@ -108,7 +193,7 @@ public class SplashActivity extends AppCompatActivity {
                     ArrayList<String> ArticleText = new ArrayList();
 
 
-                    for (int i = 0; i < Articles.size(); i++){
+                    for (int i = 0; i < Articles.size(); i++) {
                         Log.d("TAG", Articles.get(i).getTitle());
                         ArticleTitles.add(Articles.get(i).getTitle());
                         ArticleUrls.add(Articles.get(i).getLink());
@@ -132,4 +217,5 @@ public class SplashActivity extends AppCompatActivity {
             }, SPLASH_TIME_OUT);
         }
     }
+
 

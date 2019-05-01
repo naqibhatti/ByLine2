@@ -23,8 +23,9 @@
             android:layout_marginTop="4dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:layout_marginBottom="0dp"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:id="@+id/artiHead"/>
 
         <TextView
@@ -35,7 +36,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginBottom="7dp"
             android:layout_marginEnd="25dp"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:id="@+id/artides"/>
 
         <TextView
@@ -46,6 +47,7 @@
             android:lineSpacingMultiplier="1.1"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="10dp"
+            android:textColor="@color/lightGr"
             android:textSize="12sp"
             android:id="@+id/artiText"/>
 

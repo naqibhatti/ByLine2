@@ -1,5 +1,9 @@
 package com.example.naqi.crictic;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,6 +22,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +34,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
 import static com.example.naqi.crictic.MyRecyclerViewAdapter.webTrue;
 
@@ -80,6 +87,26 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
             Log.d("TAG", ArtiUrls.get(i));
             Log.d("TAG", ArtiImgUrls.get(i));
         }
+
+        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(textView, "alpha",  1f, .0f);
+        fadeOut.setDuration(1500);
+
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(textView, "alpha", .0f, 1f);
+        fadeIn.setDuration(1500);
+
+        final AnimatorSet mAnimationSet = new AnimatorSet();
+
+        mAnimationSet.play(fadeIn).after(fadeOut);
+
+        mAnimationSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                mAnimationSet.start();
+            }
+        });
+        mAnimationSet.start();
+
 
 //Musa do something with this:
 //        BottomNavigationView bottomNavigationView = (BottomNavigationView)

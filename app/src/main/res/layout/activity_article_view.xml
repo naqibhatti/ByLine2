@@ -48,7 +48,7 @@
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="10dp"
             android:textColor="@color/lightGr"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:id="@+id/artiText"/>
 
     </LinearLayout>

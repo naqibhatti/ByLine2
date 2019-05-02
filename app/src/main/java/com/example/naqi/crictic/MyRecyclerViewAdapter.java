@@ -52,6 +52,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     Typeface typeFace3;
     Typeface typeFace4;
     Typeface typeFace5;
+    Typeface typeFace6;
     int yellow;
 
 
@@ -67,6 +68,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         typeFace3 = Typeface.createFromAsset(context.getAssets(), "fonts/zebrazil.ttf");
         typeFace4 = Typeface.createFromAsset(context.getAssets(), "fonts/anson.otf");
         typeFace5 = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Bold.ttf");
+        typeFace6 = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Light.ttf");
 
         yellow = context.getResources().getColor(R.color.Yellow);
     }

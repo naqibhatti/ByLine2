@@ -89,7 +89,7 @@ public class ArticleViewActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public boolean onLongClick(View v) {
-        Toast.makeText(this, "Long Click", Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "Long Click", Toast.LENGTH_LONG).show();
         aText.setTextSize(TypedValue.COMPLEX_UNIT_PX,aText.getTextSize()-2);
         return true;
     }

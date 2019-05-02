@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     }
     @Override
     public void onItemLongClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter2.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "You clicked " + adapter2.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
         for (int i = 0; i < ArtiUrls.size(); i++) {
             if (position == i) {
                 Intent a;

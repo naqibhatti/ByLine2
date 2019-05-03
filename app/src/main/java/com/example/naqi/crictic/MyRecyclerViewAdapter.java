@@ -37,6 +37,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private List<String> mData;
     private List<String> mImage;
     private List<String> mDesc;
+    private List<String> mChan;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private ItemLongClickListener mLClickListener;
@@ -57,11 +58,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<String> data, List<String> mData, List<String>  desc) {
+    MyRecyclerViewAdapter(Context context, List<String> data, List<String> mData, List<String>  desc, List<String> mChannelName) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.mImage = mData;
         this.mDesc = desc;
+        this.mChan = mChannelName;
 
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/AbrilFatface-Regular.ttf");
         typeFace2 = Typeface.createFromAsset(context.getAssets(), "fonts/adam.otf");
@@ -89,6 +91,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         holder.myTextView.setText(animal);
         holder.myDescription.setText(description);
+
         URI url = null;
         try {
             url = new URI(ani);
@@ -155,6 +158,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         TextView byText;
 
+        ImageView mChannel;
+
         ViewHolder(View itemView) {
             super(itemView);
 
@@ -165,6 +170,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             byText.setTypeface(typeFace2);
 
             myTextView.setTypeface(typeFace4);
+
+            mChannel = itemView.findViewById(R.id.channel);
 
             cd = itemView.findViewById(R.id.card);
 

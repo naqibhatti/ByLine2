@@ -191,6 +191,7 @@ public class SplashActivity extends AppCompatActivity {
                     ArrayList<String> ArticleImgUrls = new ArrayList();
                     ArrayList<String> ArticleDesc = new ArrayList();
                     ArrayList<String> ArticleText = new ArrayList();
+                    ArrayList<String> ArticleChannel = new ArrayList();
 
 
                     for (int i = 0; i < Articles.size(); i++) {

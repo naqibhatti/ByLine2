@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     ArrayList<String> ArtiTitles;
     ArrayList<String> ArtiImgUrls;
     ArrayList<String> ArtiDesc;
+    ArrayList<String> ArtiChannel;
 
 
 
@@ -164,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         rc2.setLayoutManager(layoutManager1);
         rc2.setNestedScrollingEnabled(false);
 
-        adapter2 = new MyRecyclerViewAdapter(this, ArtiTitles, ArtiImgUrls, ArtiDesc);
+        adapter2 = new MyRecyclerViewAdapter(this, ArtiTitles, ArtiImgUrls, ArtiDesc, ArtiChannel);
 //        Log.d("TAG", "View set");
         adapter2.setClickListener(this);
 

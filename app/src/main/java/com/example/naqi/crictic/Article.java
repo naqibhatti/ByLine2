@@ -7,8 +7,17 @@ class Article {
     private String description;
     private String text;
     private String title;
+    private String channelName;
 
     Article() {
+    }
+
+    public String getChannelName() {
+        return channelName;
+    }
+
+    public void setChannelName(String channelName) {
+        this.channelName = channelName;
     }
 
     public String getImage_link() {

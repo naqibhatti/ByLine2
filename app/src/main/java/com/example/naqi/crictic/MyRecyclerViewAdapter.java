@@ -72,6 +72,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         typeFace5 = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Bold.ttf");
         typeFace6 = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Light.ttf");
 
+
         yellow = context.getResources().getColor(R.color.Yellow);
     }
 
@@ -92,6 +93,36 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.myTextView.setText(animal);
         holder.myDescription.setText(description);
 
+        String channel = mChan.get(position);
+
+        Log.d("val", "cannel is" + channel);
+
+        if(channel.equals("Geo_Urdu")){
+            Picasso.get()
+                    .load(R.drawable.geourdu)
+                    .into(holder.mChannel);
+        }else if(channel.equals("Geo")){
+            Picasso.get()
+                    .load(R.drawable.geo)
+                    .into(holder.mChannel);
+        }else if(channel.equals("Tribune")){
+            Picasso.get()
+                    .load(R.drawable.tribune)
+                    .into(holder.mChannel);
+        }else if(channel.equals("Mango")){
+            Picasso.get()
+                    .load(R.drawable.mangobaaz)
+                    .into(holder.mChannel);
+        }else if(channel.equals("Dawn")){
+            Picasso.get()
+                    .load(R.drawable.dawn)
+                    .into(holder.mChannel);
+        }else{
+            Picasso.get()
+                    .load(R.drawable.dawn)
+                    .into(holder.mChannel);
+        }
+
         URI url = null;
         try {
             url = new URI(ani);
@@ -102,6 +133,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         Picasso.get()
                 .load(String.valueOf(url))
                 .into(holder.newImage);
+
+
+
 
 //        try {
 //            Bitmap bmp = null;

@@ -9,4 +9,6 @@
     <color name="colorLightGray">#7A7A7A</color>
     <color name="Yellow">#FFC107</color>
     <color name="lightGr">#3C3C3C</color>
+    <color name="lighterGr">#D8D8D8</color>
+
 </resources>

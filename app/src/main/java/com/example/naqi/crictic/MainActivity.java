@@ -34,6 +34,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
  getSupportActionBar().setDisplayUseLogoEnabled(true);
  **/
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.icon_lay);
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -81,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         ArtiImgUrls = getIntent().getStringArrayListExtra("ArticlesImgUrls");
         ArtiDesc = getIntent().getStringArrayListExtra("ArticlesDesc");
         ArtiText = getIntent().getStringArrayListExtra("ArticlesText");
+
+        ArtiChannel = getIntent().getStringArrayListExtra("ArticlesChannel");
+
 
         Log.d("TAG", "MAIN ACTIVITY");
         for (int i = 0; i < ArtiTitles.size(); i++) {

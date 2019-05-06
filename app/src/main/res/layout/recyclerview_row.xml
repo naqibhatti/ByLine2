@@ -25,7 +25,7 @@
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
+            android:layout_margin="5dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="3dp">
 
@@ -74,7 +74,6 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/geo"
                         android:id="@+id/channel"/>
 
                     <TextView

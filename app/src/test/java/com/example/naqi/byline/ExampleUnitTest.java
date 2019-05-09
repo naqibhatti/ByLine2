@@ -1,4 +1,4 @@
-package com.example.naqi.crictic;
+package com.example.naqi.byline;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.naqi.crictic;
+package com.example.naqi.byline;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -67,28 +66,28 @@ public class SplashActivity extends AppCompatActivity {
                 }
             });
         }
-        for (int i = 1; i < 20; i++) {
-            DocumentReference docRef3 = db.collection("Dawn").document("Article" + Integer.toString(i));
-            final int finalI = i;
-            docRef3.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        // Document found in the offline cache
-                        DocumentSnapshot document = task.getResult();
-                        Article city = document.toObject(Article.class);
-                        city.setChannelName("Dawn");
-                        Articles.add(city);
-                        Log.d("TAG", "Article" + Integer.toString(finalI) + ": " + city.getTitle());
-
-                        //matches.add(city.getTitle());
-
-                    } else {
-                        Log.d("TAG", "Cached get failed: ", task.getException());
-                    }
-                }
-            });
-        }
+//        for (int i = 1; i < 20; i++) {
+//            DocumentReference docRef3 = db.collection("Dawn").document("Article" + Integer.toString(i));
+//            final int finalI = i;
+//            docRef3.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                @Override
+//                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                    if (task.isSuccessful()) {
+//                        // Document found in the offline cache
+//                        DocumentSnapshot document = task.getResult();
+//                        Article city = document.toObject(Article.class);
+//                        city.setChannelName("Dawn");
+//                        Articles.add(city);
+//                        Log.d("TAG", "Article" + Integer.toString(finalI) + ": " + city.getTitle());
+//
+//                        //matches.add(city.getTitle());
+//
+//                    } else {
+//                        Log.d("TAG", "Cached get failed: ", task.getException());
+//                    }
+//                }
+//            });
+//        }
         for (int i = 1; i < 5; i++) {
             DocumentReference docRef4 = db.collection("MangoFuck").document("Article" + Integer.toString(i));
             final int finalI = i;

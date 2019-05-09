@@ -1,4 +1,4 @@
-package com.example.naqi.crictic;
+package com.example.naqi.byline;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -9,13 +9,12 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.gw.swipeback.SwipeBackLayout;
 import com.squareup.picasso.Picasso;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 
 public class ArticleViewActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
     TextView headlines;
@@ -38,6 +37,24 @@ public class ArticleViewActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_view);
+
+        SwipeBackLayout mSwipeBackLayout = (SwipeBackLayout) findViewById(R.id.swipeBackLayout);
+        mSwipeBackLayout.setDirectionMode(SwipeBackLayout.FROM_LEFT);
+        mSwipeBackLayout.setMaskAlpha(0);
+        mSwipeBackLayout.setSwipeBackFactor(0.5f);
+        mSwipeBackLayout.setSwipeBackListener(new SwipeBackLayout.OnSwipeBackListener() {
+            @Override
+            public void onViewPositionChanged(View mView, float swipeBackFraction, float SWIPE_BACK_FACTOR) {
+                if (swipeBackFraction >= 0.3) {
+//                    onBackPressed();
+                    finish();
+                }
+            }
+            @Override
+            public void onViewSwipeFinished(View mView, boolean isEnd) {
+//                finish();
+            }
+        });
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         getWindow().setStatusBarColor(Color.WHITE);

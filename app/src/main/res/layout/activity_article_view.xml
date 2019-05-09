@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<com.gw.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeBackLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:directionMode="left"
+    app:isSwipeFromEdge="true"
+
+    app:swipeBackFactor="0.5">
 
 <android.support.v4.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:id="@+id/artiImage"
+            android:transitionName="myImage"
             android:scaleType="centerCrop"/>
 
         <TextView
@@ -54,3 +64,4 @@
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
+</com.gw.swipeback.SwipeBackLayout>

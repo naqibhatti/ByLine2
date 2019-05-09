@@ -5,10 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url "https://jitpack.io" }
-        maven {
-            url  "http://dl.bintray.com/fatihsokmen/github-public-apache2"
-        }
+        maven { url 'http://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.0'

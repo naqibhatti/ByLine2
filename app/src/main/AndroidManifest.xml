@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.naqi.crictic">
+    package="com.example.naqi.byline">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,18 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FirstTimeActivity"></activity>
-        <activity android:name=".ArticleViewActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name="com.example.naqi.byline.FirstTimeActivity"></activity>
+        <activity android:name="com.example.naqi.byline.ArticleViewActivity"/>
+        <activity android:name="com.example.naqi.byline.MainActivity" />
+        <activity android:name="com.example.naqi.byline.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Match1" />
-        <activity android:name=".WebViewActivity" />
+
+        <activity android:name="com.example.naqi.byline.WebViewActivity" />
     </application>
 
 </manifest>

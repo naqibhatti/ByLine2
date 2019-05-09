@@ -1,4 +1,4 @@
-package com.example.naqi.crictic;
+package com.example.naqi.byline;
 
 class Article {
 

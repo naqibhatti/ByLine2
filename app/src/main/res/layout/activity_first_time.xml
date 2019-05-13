@@ -9,7 +9,7 @@
     tools:context=".FirstTimeActivity">
 
     <ImageView
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="150dp"
         android:id="@+id/pre"
         android:layout_width="300dp"
         android:layout_gravity="center_horizontal"

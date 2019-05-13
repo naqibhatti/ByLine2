@@ -50,18 +50,19 @@ public class ArticleViewActivity extends AppCompatActivity implements View.OnCli
                     finish();
                 }
             }
+
             @Override
             public void onViewSwipeFinished(View mView, boolean isEnd) {
 //                finish();
             }
         });
+        {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            getWindow().setStatusBarColor(Color.WHITE);
 
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        getWindow().setStatusBarColor(Color.WHITE);
-
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.icon_lay);
-
+            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+            getSupportActionBar().setCustomView(R.layout.icon_lay);
+        }
         headlines = findViewById(R.id.artiHead);
         description = findViewById(R.id.artides);
         aText = findViewById(R.id.artiText);
@@ -74,6 +75,9 @@ public class ArticleViewActivity extends AppCompatActivity implements View.OnCli
         typeFace4 = Typeface.createFromAsset(this.getAssets(), "fonts/anson.otf");
         typeFace5 = Typeface.createFromAsset(this.getAssets(), "fonts/Roboto-Regular.ttf");
 
+        headlines.setTypeface(typeFace4);
+        description.setTypeface(typeFace2);
+        aText.setTypeface(typeFace5);
 
         ArtiTitles = getIntent().getStringExtra("headline");
 //      ArtiUrls = getIntent().getStringExtra("ArticlesUrls");
@@ -85,14 +89,10 @@ public class ArticleViewActivity extends AppCompatActivity implements View.OnCli
         description.setText(ArtiDesc);
         aText.setText(ArtiText);
 
-        headlines.setTypeface(typeFace4);
-        description.setTypeface(typeFace2);
-        aText.setTypeface(typeFace5);
-
         URI url = null;
         try {
             url = new URI(ArtiImgUrls);
-        }catch (URISyntaxException e) {
+        } catch (URISyntaxException e) {
             e.printStackTrace();
         }
 
@@ -107,7 +107,7 @@ public class ArticleViewActivity extends AppCompatActivity implements View.OnCli
     @Override
     public boolean onLongClick(View v) {
 //        Toast.makeText(this, "Long Click", Toast.LENGTH_LONG).show();
-        aText.setTextSize(TypedValue.COMPLEX_UNIT_PX,aText.getTextSize()-2);
+        aText.setTextSize(TypedValue.COMPLEX_UNIT_PX, aText.getTextSize() - 2);
         return true;
     }
 
@@ -115,6 +115,6 @@ public class ArticleViewActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         float textSizes = aText.getTextSize();
         textSizes = textSizes + 1;
-        aText.setTextSize(TypedValue.COMPLEX_UNIT_PX,aText.getTextSize() + 2);
+        aText.setTextSize(TypedValue.COMPLEX_UNIT_PX, aText.getTextSize() + 2);
     }
 }

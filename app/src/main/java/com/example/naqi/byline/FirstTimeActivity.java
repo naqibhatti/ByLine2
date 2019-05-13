@@ -19,6 +19,7 @@ public class FirstTimeActivity extends AppCompatActivity {
     ArrayList<String> ArticleChannel = new ArrayList();
 
     private static int SPLASH_TIME_OUT = 8000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

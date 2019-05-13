@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     ArrayList<String> ArtiChannel;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,15 +46,17 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.icon_lay);
 
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
         getWindow().setStatusBarColor(Color.WHITE);
 
         TextView textView = (TextView) findViewById(R.id.test);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/AbrilFatface-Regular.ttf");
         textView.setTypeface(typeface);
 
-        ArrayList<String> matches = new ArrayList();
-        ArrayList<Drawable> imag = new ArrayList();
+        ArrayList<String> matches = new ArrayList<String>();
+        ArrayList<Drawable> imag = new ArrayList<Drawable>();
 
         ArtiTitles = getIntent().getStringArrayListExtra("ArticlesTitles");
         ArtiUrls = getIntent().getStringArrayListExtra("ArticlesUrls");
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
             Log.d("TAG", ArtiImgUrls.get(i));
         }
 
-        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(textView, "alpha",  1f, .0f);
+        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(textView, "alpha", 1f, .0f);
         fadeOut.setDuration(1500);
 
         ObjectAnimator fadeIn = ObjectAnimator.ofFloat(textView, "alpha", .0f, 1f);
@@ -260,6 +262,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 //        }else{
         }
     }
+
     @Override
     public void onItemLongClick(View view, int position) {
 //        Toast.makeText(this, "You clicked " + adapter2.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();

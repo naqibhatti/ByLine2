@@ -1,3 +1,3 @@
 # Demo
 
-App for news
+App for news!
